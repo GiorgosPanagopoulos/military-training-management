@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Military Training Management
 
-## Getting Started
+This is a full-stack application for managing military personnel, services, trainings, and training records with scores and success percentages.
 
-First, run the development server:
+## Technologies Used
+
+- Backend: Node.js, Express.js, MongoDB, Mongoose, JWT for authentication
+- Frontend: React, Next.js, Tailwind CSS
+- Testing: Jest (to be implemented), Postman for API integration tests
+- Documentation: Swagger (to be implemented)
+
+## Setup and Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd <repository-folder>
+```
+
+2. Install backend dependencies:
+
+```bash
+cd src/backend
+npm install
+```
+
+3. Install frontend dependencies:
+
+```bash
+cd ../../
+npm install
+```
+
+4. Create a `.env` file in `src/backend` with the following variables:
+
+```
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+PORT=5000
+```
+
+5. Run the backend server:
+
+```bash
+cd src/backend
+npm start
+```
+
+6. Run the frontend development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The frontend will be available at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Testing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Unit tests and integration tests will be added.
+- Use Postman to test REST API endpoints.
 
-## Learn More
+## API Documentation
 
-To learn more about Next.js, take a look at the following resources:
+- Swagger documentation will be added.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Manage personnel, services, trainings, and training records.
+- Authentication and authorization with JWT.
+- Responsive and modern UI with Tailwind CSS.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License
