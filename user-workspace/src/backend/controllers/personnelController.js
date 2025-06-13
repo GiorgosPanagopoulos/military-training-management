@@ -1,9 +1,9 @@
-import Personnel from '../models/personnelModel.js';
+import * as personnelService from '../services/personnelService.js';
 
 // Get all personnel
 export const getAllPersonnel = async (req, res) => {
   try {
-    const personnel = await Personnel.find();
+    const personnel = await personnelService.getAllPersonnel();
     res.json(personnel);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -13,7 +13,7 @@ export const getAllPersonnel = async (req, res) => {
 // Get personnel by ID
 export const getPersonnelById = async (req, res) => {
   try {
-    const personnel = await Personnel.findById(req.params.id);
+    const personnel = await personnelService.getPersonnelById(req.params.id);
     if (!personnel) return res.status(404).json({ message: 'Personnel not found' });
     res.json(personnel);
   } catch (error) {
@@ -23,10 +23,8 @@ export const getPersonnelById = async (req, res) => {
 
 // Create new personnel
 export const createPersonnel = async (req, res) => {
-  const { name, rank, serviceId } = req.body;
-  const newPersonnel = new Personnel({ name, rank, serviceId });
   try {
-    const savedPersonnel = await newPersonnel.save();
+    const savedPersonnel = await personnelService.createPersonnel(req.body);
     res.status(201).json(savedPersonnel);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -36,7 +34,7 @@ export const createPersonnel = async (req, res) => {
 // Update personnel
 export const updatePersonnel = async (req, res) => {
   try {
-    const updatedPersonnel = await Personnel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedPersonnel = await personnelService.updatePersonnel(req.params.id, req.body);
     if (!updatedPersonnel) return res.status(404).json({ message: 'Personnel not found' });
     res.json(updatedPersonnel);
   } catch (error) {
@@ -47,7 +45,7 @@ export const updatePersonnel = async (req, res) => {
 // Delete personnel
 export const deletePersonnel = async (req, res) => {
   try {
-    const deletedPersonnel = await Personnel.findByIdAndDelete(req.params.id);
+    const deletedPersonnel = await personnelService.deletePersonnel(req.params.id);
     if (!deletedPersonnel) return res.status(404).json({ message: 'Personnel not found' });
     res.json({ message: 'Personnel deleted' });
   } catch (error) {
