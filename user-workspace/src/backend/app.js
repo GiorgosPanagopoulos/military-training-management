@@ -7,7 +7,9 @@ import dotenv from 'dotenv';
 import personnelRoutes from './routes/personnelRoutes.js';
 import serviceRoutes from './routes/serviceRoutes.js';
 import trainingRoutes from './routes/trainingRoutes.js';
+import personnelTrainingRoutes from './routes/personnelTrainingRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+
 
 dotenv.config();
 
@@ -22,6 +24,7 @@ app.use(bodyParser.json());
 app.use('/api/personnel', personnelRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/trainings', trainingRoutes);
+app.use('/api/personnelTrainings', personnelTrainingRoutes);
 app.use('/api/auth', authRoutes);
 
 // Connect to MongoDB and start server
